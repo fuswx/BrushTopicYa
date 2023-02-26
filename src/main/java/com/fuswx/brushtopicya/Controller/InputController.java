@@ -25,8 +25,8 @@ public class InputController {
     }
 
     @GetMapping("/findAll.do")
-    public @ResponseBody ResponseData<Input> findAll(){
-        return new ResponseData<Input>(Code.okk.getCode(),inputService.findAll());
+    public @ResponseBody ResponseData<ArrayList<Input>> findAll(){
+        return new ResponseData<ArrayList<Input>>(Code.okk.getCode(),inputService.findAll());
     }
 
     @RequestMapping("/addOne.do")
@@ -34,8 +34,4 @@ public class InputController {
         return inputService.addOne(Integer.parseInt(id));
     }
 
-    @RequestMapping("/initOne.do")
-    public @ResponseBody Input initOne(@RequestParam(required = true,name = "id")String id){
-        return inputService.initOne(Integer.parseInt(id));
-    }
 }

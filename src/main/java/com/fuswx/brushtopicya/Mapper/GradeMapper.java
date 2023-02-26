@@ -14,4 +14,7 @@ public interface GradeMapper {
 
     @Select("select * from grades where category=#{category}")
     ArrayList<Grade> findAllGradeByCategory(String category);
+
+    @Select("select * from grades where id=#{gradeId}")
+    Grade getGradeById(Integer gradeId);
 }

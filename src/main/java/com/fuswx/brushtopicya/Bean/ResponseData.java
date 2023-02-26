@@ -11,5 +11,5 @@ import java.util.ArrayList;
 @NoArgsConstructor
 public class ResponseData<T> {
     private Integer code;
-    private ArrayList<T> data;
+    private T data;
 }

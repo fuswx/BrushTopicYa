@@ -12,8 +12,6 @@ public interface InputMapper {
     @Select("select * from input_add_update where id=#{id}")
     Input addOne(Integer id);
 
-    @Select("select * from input_init where id=#{id}")
-    Input initOne(Integer id);
 
     @Select("select * from input_show")
     ArrayList<Input> findAll();

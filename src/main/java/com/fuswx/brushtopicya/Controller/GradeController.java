@@ -23,13 +23,13 @@ public class GradeController {
     //查找所有学科
     @GetMapping("/findAllGrades.do")
     @ResponseBody
-    public ResponseData<Grade> findAllGrades(){
-        return new ResponseData<Grade>(Code.okk.getCode(), gradeService.findAllGrades());
+    public ResponseData<ArrayList<Grade>> findAllGrades(){
+        return new ResponseData<ArrayList<Grade>>(Code.okk.getCode(), gradeService.findAllGrades());
     };
 
     @PostMapping("/findAllGradeByCategory.do")
     @ResponseBody
-    public ResponseData<Grade> findAllGradeByCategory(String category){
-        return new ResponseData<Grade>(Code.okk.getCode(), gradeService.findAllGradeByCategory(category));
+    public ResponseData<ArrayList<Grade>> findAllGradeByCategory(String category){
+        return new ResponseData<ArrayList<Grade>>(Code.okk.getCode(), gradeService.findAllGradeByCategory(category));
     }
 }

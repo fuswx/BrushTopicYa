@@ -11,4 +11,7 @@ public interface SubjectMapper {
     //查找所有学科
     @Select("select * from subjects")
     ArrayList<Subject> findAllSubjects();
+
+    @Select("select * from subjects where id=#{gradeId}")
+    Subject getSubjectById(Integer subjectId);
 }

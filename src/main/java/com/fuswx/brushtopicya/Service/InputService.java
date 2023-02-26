@@ -10,7 +10,5 @@ public interface InputService {
 
     Input addOne(Integer id);
 
-    Input initOne(Integer id);
-
     ArrayList<Input> findAll();
 }

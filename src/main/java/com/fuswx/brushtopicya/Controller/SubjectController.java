@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 @Controller
 @RequestMapping("/api/subject")
 public class SubjectController {
@@ -21,7 +24,7 @@ public class SubjectController {
     //查询所有科目
     @GetMapping("/findAllSubjects.do")
     @ResponseBody
-    public ResponseData<Subject> getAllSubjects(){
+    public ResponseData<ArrayList<Subject>> getAllSubjects(){
         return new ResponseData<>(Code.okk.getCode(), subjectService.findAllSubjects());
     };
 

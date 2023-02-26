@@ -19,3 +19,9 @@ server:
       charset: UTF-8
 
   port: 8848
+
+
+seimi:
+  crawler:
+    enabled: true
+    names: basic
