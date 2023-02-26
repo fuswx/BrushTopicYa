@@ -22,11 +22,6 @@ public class InputServiceImpl implements InputService {
     }
 
     @Override
-    public Input addOne(Integer id) {
-        return inputMapper.addOne(id);
-    }
-
-    @Override
     public ArrayList<Input> findAll() {
         return inputMapper.findAll();
     }

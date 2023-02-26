@@ -29,9 +29,4 @@ public class InputController {
         return new ResponseData<ArrayList<Input>>(Code.okk.getCode(),inputService.findAll());
     }
 
-    @RequestMapping("/addOne.do")
-    public @ResponseBody Input addOne(@RequestParam(required = true,name = "id")String id){
-        return inputService.addOne(Integer.parseInt(id));
-    }
-
 }

@@ -8,7 +8,5 @@ public interface InputService {
 
     Input showOne(Integer id);
 
-    Input addOne(Integer id);
-
     ArrayList<Input> findAll();
 }
