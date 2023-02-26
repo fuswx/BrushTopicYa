@@ -18,8 +18,8 @@ public class Question {
     private Integer id;
     private String type;
     private String title;
-    private ArrayList<String> items;
-    private String itemsToString;
+    private ArrayList<String> itemsList;
+    private String items;
     private ArrayList<String> initAnswer;
     private String initAnswerToString;
     //题目详细解析
