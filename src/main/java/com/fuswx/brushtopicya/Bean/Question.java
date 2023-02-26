@@ -20,8 +20,8 @@ public class Question {
     private String title;
     private ArrayList<String> itemsList;
     private String items;
-    private ArrayList<String> initAnswer;
-    private String initAnswerToString;
+    private ArrayList<String> initAnswerList;
+    private String initAnswer;
     //题目详细解析
     private String answer;
     //题目平均难度
