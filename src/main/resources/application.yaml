@@ -25,3 +25,6 @@ seimi:
   crawler:
     enabled: true
     names: basic
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml

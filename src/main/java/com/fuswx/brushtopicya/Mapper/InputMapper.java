@@ -6,9 +6,7 @@ import org.apache.ibatis.annotations.Select;
 import java.util.ArrayList;
 
 public interface InputMapper {
-    @Select("select * from input_show where id=#{id}")
-    Input showOne(Integer id);
 
-    @Select("select * from input_show")
+    @Select("select * from input")
     ArrayList<Input> findAll();
 }

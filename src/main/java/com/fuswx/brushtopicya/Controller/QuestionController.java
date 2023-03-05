@@ -3,14 +3,12 @@ package com.fuswx.brushtopicya.Controller;
 import com.fuswx.brushtopicya.Bean.Code;
 import com.fuswx.brushtopicya.Bean.Question;
 import com.fuswx.brushtopicya.Bean.ResponseData;
+import com.fuswx.brushtopicya.Bean.SearchQuestionConditions;
 import com.fuswx.brushtopicya.Service.IQuestionService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -26,10 +24,18 @@ public class QuestionController {
         return new ResponseData<>(Code.okk.getCode(), questionService.getQuestionById(id));
     }
 
-    @GetMapping("/getAllQuestion.do")
-    public @ResponseBody ResponseData<PageInfo<Question>> getAllQuestion(@RequestParam(name = "pageNum",defaultValue = "1")Integer pageNum,
-                                                               @RequestParam(name = "pageSize",defaultValue = "10")Integer pageSize,
-                                                                @RequestParam(name = "sortType",defaultValue = "time") String sortType){
-        return new ResponseData<>(Code.okk.getCode(), questionService.getAllQuestion(pageNum,pageSize,sortType));
+    @GetMapping("/getQuestionByKeyCode.do")
+    public @ResponseBody ResponseData<Question> getQuestionByKeyCode(String keyCode){
+        return new ResponseData<>(Code.okk.getCode(), questionService.getQuestionByKeyCode(keyCode));
+    }
+
+    @PostMapping("/getAllQuestion.do")
+    public @ResponseBody ResponseData<PageInfo<Question>> getAllQuestion(@RequestBody SearchQuestionConditions conditions){
+        return new ResponseData<>(Code.okk.getCode(), questionService.getAllQuestion(conditions));
+    }
+
+    @PostMapping("/setQuestionForm.do")
+    public @ResponseBody Question setQuestionForm(@RequestBody Question question){
+        return questionService.setQuestionForm(question);
     }
 }

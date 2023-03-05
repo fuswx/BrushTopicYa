@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fuswx.brushtopicya.Mapper.QuestionMapper">
+    <sql id="questionSql">
+        select * from questions
+    </sql>
+    <sql id="questionConditions">
+        <where>
+            <if test="title!=null and title!=''">
+                title like concat('%',#{title},'%')
+            </if>
+
+            <if test="subjectIds!=null and subjectIds.size!=0">
+            and
+                <foreach collection="subjectIds" item="subjectId" separator="or">
+                    subjectId=#{subjectId}
+                </foreach>
+            </if>
+
+            <if test="gradeIds!=null and gradeIds.size!=0">
+            and
+                <foreach collection="gradeIds" item="gradeId" separator="or">
+                    gradeId=#{gradeId}
+                </foreach>
+            </if>
+
+            <if test="types!=null and types.size!=0">
+            and
+                <foreach collection="types" item="type" separator="or">
+                    type=#{type}
+                </foreach>
+            </if>
+
+            <if test="degrees!=null and degrees.size!=0">
+            and
+                <foreach collection="degrees" item="degree" separator="or">
+                    degree=#{degree}
+                </foreach>
+            </if>
+
+        </where>
+    </sql>
+    
+    <select id="getQuestionById" resultMap="questionsMap">
+        <include refid="questionSql"></include>
+        where id=#{id}
+    </select>
+    
+    <select id="getAllQuestion" resultMap="questionsMap">
+        <include refid="questionSql"></include>
+        <include refid="questionConditions"></include>
+    </select>
+
+    <select id="getAllQuestionSortByTime" resultMap="questionsMap">
+        <include refid="questionSql"></include>
+        <include refid="questionConditions"></include>
+        order by uploadTime DESC
+    </select>
+
+    <select id="getAllQuestionSortByCollect" resultMap="questionsMap">
+        <include refid="questionSql"></include>
+        <include refid="questionConditions"></include>
+        order by collectCount DESC
+    </select>
+
+    <select id="getAllQuestionSortByWatch" resultMap="questionsMap">
+        <include refid="questionSql"></include>
+        <include refid="questionConditions"></include>
+        order by watchCount DESC
+    </select>
+
+    <select id="getAllQuestionSortByAnswer" resultMap="questionsMap">
+        <include refid="questionSql"></include>
+        <include refid="questionConditions"></include>
+        order by AnswerCount DESC
+    </select>
+
+    <resultMap id="questionsMap" type="com.fuswx.brushtopicya.Bean.Question" autoMapping="true">
+        <result column="initAnswer" property="initAnswerToString"></result>
+        <result column="items" property="itemsToString"></result>
+    </resultMap>
+</mapper>

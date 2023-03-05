@@ -16,6 +16,7 @@ import java.util.Date;
 public class Question {
     //组件信息
     private Integer id;
+    private String keyCode;
     private String type;
     private String typeName;
     private String title;
@@ -25,13 +26,13 @@ public class Question {
     private String itemsToString;
     private ArrayList<String> initAnswer;
     private String initAnswerToString;
+    //题目详细解析
+    private String answer;
+    private Integer answerCount;
     //收藏人数
     private Integer collectCount;
     //查看人数
     private Integer watchCount;
-    //题目详细解析
-    private String answer;
-    private Integer answerCount;
     //题目平均难度
     private Double degree;
     //题目对应的科目

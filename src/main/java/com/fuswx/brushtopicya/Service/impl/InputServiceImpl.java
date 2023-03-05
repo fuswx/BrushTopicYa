@@ -16,10 +16,6 @@ public class InputServiceImpl implements InputService {
     @Autowired
     private InputMapper inputMapper;
 
-    @Override
-    public Input showOne(Integer id) {
-        return inputMapper.showOne(id);
-    }
 
     @Override
     public ArrayList<Input> findAll() {

@@ -19,14 +19,9 @@ public class InputController {
     @Autowired
     private InputService inputService;
 
-    @RequestMapping("/showOne.do")
-    public @ResponseBody Input showOne(@RequestParam(required = true,name = "id")String id){
-        return inputService.showOne(Integer.parseInt(id));
-    }
-
     @GetMapping("/findAll.do")
     public @ResponseBody ResponseData<ArrayList<Input>> findAll(){
-        return new ResponseData<ArrayList<Input>>(Code.okk.getCode(),inputService.findAll());
+        return new ResponseData<>(Code.okk.getCode(), inputService.findAll());
     }
 
 }

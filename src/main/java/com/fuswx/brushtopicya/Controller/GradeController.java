@@ -30,6 +30,6 @@ public class GradeController {
     @PostMapping("/findAllGradeByCategory.do")
     @ResponseBody
     public ResponseData<ArrayList<Grade>> findAllGradeByCategory(String category){
-        return new ResponseData<ArrayList<Grade>>(Code.okk.getCode(), gradeService.findAllGradeByCategory(category));
+        return new ResponseData<>(Code.okk.getCode(), gradeService.findAllGradeByCategory(category));
     }
 }
